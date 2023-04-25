@@ -21,14 +21,18 @@ def advanceMatch(pattern, word):
     
     return advanceMatch(pattern[1:-1], word[1:-1])
 
-loopingCondition = True
-while loopingCondition:
-    pattern = input("Enter a pattern (or 'q' to quit): \n")
-    if pattern == "q":
-        loopingCondition = False
-    else:
-        word = input("Enter a word: \n")
-        if advanceMatch(pattern, word):
-            print("It's a match.")
+def main():
+    loopingCondition = True
+    while loopingCondition:
+        pattern = input("Enter a pattern (or 'q' to quit): \n")
+        if pattern == "q":
+            loopingCondition = False
         else:
-            print("They don't match.")
+            word = input("Enter a word: \n")
+            if advanceMatch(pattern, word):
+                print("It's a match.")
+            else:
+                print("They don't match.")
+
+if __name__ == "__main__":
+    main()
