@@ -1,4 +1,6 @@
 def checkPrimeNumberRecursive(n, i=2): # Works for small numbers
+    if n == 1:
+        return False
     if n == i:
         return True
     elif n % i == 0:
