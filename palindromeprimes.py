@@ -1,9 +1,20 @@
-def checkPrimeNumber(n, i=2):
+def checkPrimeNumberRecursive(n, i=2): # Works for small numbers
     if n == i:
         return True
     elif n % i == 0:
         return False
-    return checkPrimeNumber(n, i + 1)
+    return checkPrimeNumberRecursive(n, i + 1)
+
+# Due the stack depth allowed by a recursive call, I am going to use a for loop to check for the prime number
+def checkPrimeNumber(num):
+    if num > 1:
+        for i in range(2, int(num/2)+1):
+            if (num % i) == 0:
+                return False
+        else:
+            return True
+    else:
+        return False
 
 def checkPalindrome(word):
     if len(word) == 0 or len(word) == 1:
@@ -37,7 +48,7 @@ def main():
     
     getPalindromeNumber(start, end)
     print("The palindromic primes are:")
-    printTheList(palindromeList)
+    printTheList(palindromeList[::-1])
 
 if __name__ == "__main__":
     main()
